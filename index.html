@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sora Collective — We Build Your Outbound Sales Pipeline</title>
+<meta name="description" content="Sora Collective is a fully managed outbound sales development service for high-ticket B2B companies. We find the right companies, reach decision-makers, qualify interest and book genuine sales opportunities into your calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   SORA COLLECTIVE — OUTBOUND
+   Brand tokens carried over unchanged from the previous site.
+══════════════════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080a; --bg2:#0f0f12; --bg3:#161619; --bg4:#1d1d21;
+  --b1:rgba(255,255,255,0.055); --b2:rgba(255,255,255,0.09); --b3:rgba(255,255,255,0.16);
+  --text:#f0ede8; --text2:#d4d0cb; --text3:#9a9793;
+  --gold:#d4aa70; --gold2:#b8924a;
+  --gold3:rgba(212,170,112,0.1); --gold4:rgba(212,170,112,0.06);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --max:1120px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text2);font-family:var(--sans);font-weight:300;
+  line-height:1.65;overflow-x:hidden}
+::selection{background:rgba(212,170,112,.25);color:var(--text)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;color:var(--text);letter-spacing:-.025em;line-height:1.08}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+/* Generous vertical rhythm — the brief asks for space, not density */
+.sec{padding:150px 0;position:relative}
+.sec.tight{padding:110px 0}
+.lbl{display:block;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+.sec h2{font-size:clamp(30px,4.6vw,52px);margin-bottom:22px}
+.sec p.lead{font-size:clamp(15px,1.7vw,18px);color:var(--text2);max-width:620px;line-height:1.75}
+
+/* ══ AMBIENT ══ */
+.grid-bg{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:64px 64px}
+.glow{position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(212,170,112,.07),transparent 68%)}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:22px 0;
+  transition:background .35s,padding .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,8,10,.86);backdrop-filter:blur(18px);padding:15px 0;border-bottom-color:var(--b1)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;flex-direction:column;align-items:center;gap:1px;flex-shrink:0}
+.logo-t{display:flex;align-items:baseline}
+.logo-s{font-family:var(--serif);font-size:23px;color:var(--text);line-height:1}
+.logo-d{font-family:var(--serif);font-size:23px;color:var(--gold);line-height:1}
+.logo-c{font-size:7px;letter-spacing:.34em;text-transform:uppercase;color:var(--text3);padding-left:.34em}
+.nav-links{display:flex;align-items:center;gap:38px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text3);transition:color .25s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:11px 22px;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;transition:all .28s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold);color:var(--bg)}
+.ham{display:none;background:none;border:none;color:var(--text2);padding:6px}
+
+/* mobile nav */
+#mob{position:fixed;inset:0;z-index:499;background:var(--bg);display:none;flex-direction:column;
+  padding:96px 32px 40px}
+#mob.on{display:flex}
+#mob a{font-family:var(--serif);font-size:28px;color:var(--text2);padding:15px 0;border-bottom:1px solid var(--b1)}
+#mob .nav-cta{margin-top:32px;text-align:center;font-family:var(--sans);font-size:12px}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;
+  padding:17px 34px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:500;transition:all .3s cubic-bezier(.16,1,.3,1);border:1px solid transparent}
+.btn-g{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.btn-g:hover{background:var(--gold2);border-color:var(--gold2);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--text2);border-color:var(--b3)}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ══ REVEAL ══ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}
+
+/* ══════════════════════════════════════
+   1. HERO
+══════════════════════════════════════ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:150px 0 90px}
+@media(max-width:720px){.hero{padding:118px 0 64px;min-height:auto}}
+.hero .glow.a{top:-25%;left:-15%;width:70vw;height:70vw;max-width:900px;max-height:900px}
+.hero .glow.b{bottom:-30%;right:-20%;width:60vw;height:60vw;max-width:760px;max-height:760px;
+  background:radial-gradient(circle,rgba(212,170,112,.045),transparent 68%)}
+.hero-in{position:relative;z-index:2;text-align:center;max-width:960px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,170,112,.26);
+  background:var(--gold4);padding:9px 20px;margin-bottom:40px}
+.hero-eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--gold);display:block;
+  animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(38px,7vw,84px);line-height:1.02;letter-spacing:-.035em;margin-bottom:32px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:clamp(15px,1.9vw,19px);color:var(--text2);max-width:640px;margin:0 auto 46px;line-height:1.75}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* pipeline strip */
+.pipe{margin-top:96px;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap}
+.pipe-node{display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;
+  transform:translateY(14px);animation:nodeIn .8s cubic-bezier(.16,1,.3,1) forwards}
+.pipe-node:nth-child(1){animation-delay:.7s}
+.pipe-node:nth-child(3){animation-delay:1.0s}
+.pipe-node:nth-child(5){animation-delay:1.3s}
+.pipe-node:nth-child(7){animation-delay:1.6s}
+@keyframes nodeIn{to{opacity:1;transform:none}}
+.pipe-dot{display:block;width:11px;height:11px;border:1px solid var(--gold);position:relative}
+.pipe-node:last-of-type .pipe-dot{background:var(--gold)}
+.pipe-label{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);white-space:nowrap}
+.pipe-node:last-of-type .pipe-label{color:var(--gold)}
+.pipe-line{flex:1;height:1px;background:var(--b2);max-width:110px;position:relative;overflow:hidden;
+  margin:0 4px;margin-bottom:26px}
+.pipe-line::after{content:'';position:absolute;inset:0;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;animation:lineIn .7s cubic-bezier(.16,1,.3,1) forwards}
+.pipe-line:nth-of-type(2)::after{animation-delay:.85s}
+.pipe-line:nth-of-type(4)::after{animation-delay:1.15s}
+.pipe-line:nth-of-type(6)::after{animation-delay:1.45s}
+@keyframes lineIn{to{transform:scaleX(1)}}
+
+@media(max-width:720px){
+  .pipe{flex-direction:column;gap:0;margin-top:64px}
+  /* Reset the desktop margin-bottom, which offsets the line when stacked. */
+  /* flex:1 sets flex-basis:0 on the main axis, collapsing the height —
+     it has to be reset or the connectors vanish when stacked. */
+  .pipe-line{flex:none;width:1px;height:24px;max-width:none;margin:8px 0}
+  .pipe-line::after{transform:scaleY(0);transform-origin:top;animation-name:lineInV}
+  @keyframes lineInV{to{transform:scaleY(1)}}
+}
+
+/* ══════════════════════════════════════
+   2. YOUR TEAM SHOULD BE CLOSING
+══════════════════════════════════════ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:64px}
+.split-col{background:var(--bg2);padding:52px 46px}
+.split-col.gold{background:rgba(212,170,112,.04)}
+.split-h{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--text3);
+  padding-bottom:20px;margin-bottom:28px;border-bottom:1px solid var(--b1)}
+.split-col.gold .split-h{color:var(--gold)}
+.split-col ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.split-col li{font-family:var(--serif);font-size:clamp(20px,2.6vw,27px);color:var(--text2);line-height:1.2}
+.split-col.gold li{color:var(--text)}
+@media(max-width:800px){.split{grid-template-columns:1fr}.split-col{padding:38px 30px}}
+
+/* ══════════════════════════════════════
+   3. HOW IT WORKS
+══════════════════════════════════════ */
+.steps{margin-top:80px;position:relative}
+.steps::before{content:'';position:absolute;left:39px;top:20px;bottom:20px;width:1px;background:var(--b1)}
+.steps-fill{position:absolute;left:39px;top:20px;width:1px;background:var(--gold);
+  height:0;transition:height 1.4s cubic-bezier(.16,1,.3,1)}
+.step{display:grid;grid-template-columns:80px 1fr;gap:38px;padding:34px 0;position:relative}
+.step-n{font-family:var(--serif);font-size:15px;color:var(--text3);width:79px;height:79px;
+  border:1px solid var(--b2);background:var(--bg);display:flex;align-items:center;justify-content:center;
+  transition:all .5s;position:relative;z-index:2}
+.step.in .step-n{border-color:rgba(212,170,112,.45);color:var(--gold);background:var(--gold4)}
+.step-b h3{font-size:clamp(21px,2.6vw,29px);margin-bottom:12px}
+.step-b p{font-size:15px;color:var(--text3);max-width:520px;line-height:1.75}
+@media(max-width:680px){
+  .steps::before,.steps-fill{left:26px}
+  .step{grid-template-columns:53px 1fr;gap:22px;padding:26px 0}
+  .step-n{width:52px;height:52px;font-size:13px}
+}
+
+/* ══════════════════════════════════════
+   4. HUMAN QUALIFICATION
+══════════════════════════════════════ */
+.qual{background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-top:60px}
+@media(max-width:920px){.qual-grid{grid-template-columns:1fr;gap:48px}}
+
+/* conversation panel */
+.call{border:1px solid var(--b2);background:var(--bg);overflow:hidden}
+.call-top{padding:18px 22px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:13px}
+.call-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--bg);font-weight:600;flex-shrink:0}
+.call-who{font-size:13px;color:var(--text)}
+.call-role{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-top:2px}
+.call-live{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-size:9px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.call-live i{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+.call-body{padding:24px 22px;display:flex;flex-direction:column;gap:16px}
+.bub{max-width:82%;padding:13px 17px;font-size:13.5px;line-height:1.6;border:1px solid var(--b1)}
+.bub.them{background:var(--bg2);color:var(--text2);align-self:flex-start}
+.bub.sora{background:var(--gold4);border-color:rgba(212,170,112,.25);color:var(--text);align-self:flex-end}
+.bub-who{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.bub.sora .bub-who{color:var(--gold)}
+.call-foot{padding:16px 22px;border-top:1px solid var(--b1);display:flex;align-items:center;
+  justify-content:space-between;gap:14px;flex-wrap:wrap}
+.call-verdict{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(212,170,112,.3);background:var(--gold4);padding:7px 14px}
+
+/* journey */
+.journey{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.j-step{border:1px solid var(--b1);background:var(--bg2);padding:19px 24px;display:flex;
+  align-items:center;justify-content:space-between;gap:16px;transition:all .4s}
+.j-step.final{border-color:rgba(212,170,112,.3);background:var(--gold4)}
+.j-name{font-size:14px;color:var(--text2)}
+.j-step.final .j-name{color:var(--gold)}
+.j-tag{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3)}
+.j-arrow{text-align:center;color:var(--gold);opacity:.45;font-size:12px;padding:9px 0}
+
+/* ══════════════════════════════════════
+   5. CALCULATOR
+══════════════════════════════════════ */
+.calc{margin-top:60px;border:1px solid var(--b2);background:var(--bg2);display:grid;
+  grid-template-columns:1fr 1fr}
+@media(max-width:880px){.calc{grid-template-columns:1fr}}
+.calc-in{padding:48px 44px;border-right:1px solid var(--b1)}
+@media(max-width:880px){.calc-in{border-right:none;border-bottom:1px solid var(--b1);padding:36px 28px}}
+.cur{display:flex;gap:6px;margin-bottom:34px}
+.cur button{font-size:11px;letter-spacing:.1em;color:var(--text3);background:var(--bg);
+  border:1px solid var(--b2);padding:9px 16px;transition:all .25s}
+.cur button:hover{border-color:rgba(212,170,112,.4);color:var(--text2)}
+.cur button.on{background:var(--gold);border-color:var(--gold);color:var(--bg);font-weight:600}
+.cfield{margin-bottom:30px}
+.cfield:last-child{margin-bottom:0}
+.crow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:13px}
+.clabel{font-size:12.5px;color:var(--text3)}
+.cval{font-family:var(--serif);font-size:20px;color:var(--gold)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--b2);
+  outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  background:var(--gold);cursor:pointer;border:none}
+input[type=range]::-moz-range-thumb{width:15px;height:15px;background:var(--gold);
+  cursor:pointer;border:none;border-radius:0}
+.calc-out{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:880px){.calc-out{padding:36px 28px}}
+.oblock{margin-bottom:32px}
+.oblock:last-of-type{margin-bottom:0}
+.olabel{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.oval{font-family:var(--serif);font-size:clamp(30px,4.4vw,46px);color:var(--text);line-height:1}
+.oval.gold{color:var(--gold)}
+.calc-note{font-size:11.5px;color:var(--text3);font-style:italic;line-height:1.65;
+  margin-top:30px;padding-top:22px;border-top:1px solid var(--b1)}
+.calc-cta{text-align:center;margin-top:50px}
+.calc-cta p{font-family:var(--serif);font-size:clamp(19px,2.4vw,25px);color:var(--text);margin-bottom:22px}
+
+/* ══════════════════════════════════════
+   6. WHO IT'S FOR
+══════════════════════════════════════ */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:58px}
+.who-item{background:var(--bg2);padding:34px 30px;font-size:15px;color:var(--text2);transition:all .35s}
+.who-item:hover{background:var(--bg3);color:var(--text)}
+@media(max-width:760px){.who{grid-template-columns:1fr 1fr}.who-item{padding:26px 20px;font-size:13.5px}}
+@media(max-width:440px){.who{grid-template-columns:1fr}}
+
+/* ══════════════════════════════════════
+   7. EVERYTHING INCLUDED
+══════════════════════════════════════ */
+.incl{text-align:center;max-width:820px;margin:0 auto}
+.incl p.line{font-size:clamp(15px,1.9vw,18.5px);color:var(--text2);line-height:1.85;margin-bottom:44px}
+.incl .stamp{font-family:var(--serif);font-size:clamp(26px,4.2vw,44px);color:var(--gold);
+  font-style:italic;line-height:1.25}
+
+/* ══════════════════════════════════════
+   8. FINAL CTA + FORM
+══════════════════════════════════════ */
+.final{position:relative;overflow:hidden;text-align:center;
+  border-top:1px solid var(--b1);background:var(--bg2)}
+.final .glow{top:-40%;left:50%;transform:translateX(-50%);width:80vw;height:80vw;max-width:1000px;max-height:1000px}
+.final-in{position:relative;z-index:2;max-width:720px;margin:0 auto}
+.final h2{font-size:clamp(32px,5.2vw,60px);margin-bottom:26px}
+.final p{font-size:clamp(15px,1.8vw,18px);color:var(--text2);margin-bottom:42px;line-height:1.8}
+.final small{display:block;font-size:12px;color:var(--text3);margin-top:22px;letter-spacing:.06em}
+
+/* form */
+.formsec{background:var(--bg);border-top:1px solid var(--b1)}
+.fwrap{max-width:720px;margin:0 auto}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+@media(max-width:680px){.fgrid{grid-template-columns:1fr}}
+.fg{margin-bottom:24px}
+.fg.full{grid-column:1/-1}
+.fg label{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:10px}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--bg2);border:1px solid var(--b2);
+  color:var(--text);font-family:var(--sans);font-weight:300;font-size:16px;padding:14px 16px;
+  outline:none;transition:border-color .25s,background .25s;-webkit-appearance:none;appearance:none;border-radius:0}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text3)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(212,170,112,.45);
+  background:rgba(212,170,112,.03)}
+.fg textarea{resize:vertical;min-height:100px}
+.f-btn{width:100%;background:var(--gold);color:var(--bg);border:none;padding:18px;
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;transition:background .28s;font-family:var(--sans)}
+.f-btn:hover{background:var(--gold2)}
+.f-btn:disabled{opacity:.55;cursor:not-allowed}
+.form-error{display:none;background:rgba(200,90,70,.08);border:1px solid rgba(200,90,70,.3);
+  color:var(--text2);padding:14px 18px;font-size:13.5px;margin-bottom:22px;line-height:1.6}
+.form-success{display:none;text-align:center;padding:56px 34px;border:1px solid rgba(212,170,112,.3);
+  background:var(--gold4)}
+.form-success h3{font-size:clamp(24px,3.4vw,34px);color:var(--gold);margin-bottom:14px}
+.form-success p{font-size:15px;color:var(--text2);max-width:420px;margin:0 auto;line-height:1.8}
+
+/* ══ FOOTER ══ */
+footer{border-top:1px solid var(--b1);padding:64px 0 44px;background:var(--bg)}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:44px;
+  flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--b1)}
+.foot-tag{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--gold);margin-top:16px}
+.foot-links{display:flex;gap:40px;flex-wrap:wrap}
+.foot-col h4{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:16px;font-weight:500}
+.foot-col a{display:block;font-size:13.5px;color:var(--text3);margin-bottom:11px;transition:color .25s}
+.foot-col a:hover{color:var(--gold)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;
+  flex-wrap:wrap;padding-top:32px;font-size:11.5px;color:var(--text3)}
+
+/* ══ LEGAL PAGES ══ */
+.page{display:none}
+.page.on{display:block}
+.legal{padding:170px 0 100px;max-width:760px;margin:0 auto}
+.legal h1{font-size:clamp(30px,4.4vw,46px);margin-bottom:14px}
+.legal .updated{font-size:12px;color:var(--text3);margin-bottom:52px;padding-bottom:26px;border-bottom:1px solid var(--b1)}
+.legal h2{font-size:20px;margin:44px 0 14px}
+.legal p,.legal li{font-size:14.5px;color:var(--text2);line-height:1.85;margin-bottom:14px}
+.legal ul{padding-left:22px;margin-bottom:18px}
+.legal a{color:var(--gold)}
+.legal .back{display:inline-block;margin-bottom:34px;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text3);transition:color .25s}
+.legal .back:hover{color:var(--gold)}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .ham{display:block}
+  /* The mobile menu already carries the CTA — two competing buttons
+     crowd the logo and shrink the tap target for both. */
+  nav > .nav-in > .nav-cta{display:none}
+  #mob .nav-cta{display:block}
+  .sec{padding:96px 0}
+  .sec.tight{padding:78px 0}
+  .wrap,.nav-in{padding:0 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .rv{opacity:1;transform:none}
+  .pipe-node{opacity:1;transform:none}
+  .pipe-line::after{transform:scaleX(1)}
+}
+
+
+/* ══════════════════════════════════════
+   MOTION
+   Restrained on purpose: movement is used to sequence meaning
+   (a conversation unfolding, a pipeline filling), not decorate.
+══════════════════════════════════════ */
+
+/* Thin scroll indicator */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:600;pointer-events:none;
+  background:linear-gradient(90deg,var(--gold2),var(--gold));transition:width .12s linear}
+
+/* Hero: lines lift in sequence rather than all at once */
+.hero-line{display:block;overflow:hidden}
+.hero-line span{display:block;transform:translateY(105%);opacity:0;
+  animation:lineUp 1.05s cubic-bezier(.16,1,.3,1) forwards}
+.hero-line:nth-child(1) span{animation-delay:.14s}
+.hero-line:nth-child(2) span{animation-delay:.26s}
+@keyframes lineUp{to{transform:translateY(0);opacity:1}}
+
+.hero-eyebrow{opacity:0;animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .04s forwards}
+.hero-sub{opacity:0;animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .42s forwards}
+.hero-cta{opacity:0;animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .54s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Glows drift slowly so the background is never quite static */
+.hero .glow.a{animation:drift 26s ease-in-out infinite alternate}
+.hero .glow.b{animation:drift 32s ease-in-out infinite alternate-reverse}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(4%,-3%) scale(1.09)}}
+
+/* Staggered children — index set inline by JS */
+.stag > *{opacity:0;transform:translateY(16px);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.stag.in > *{opacity:1;transform:none}
+.stag.in > *{transition-delay:calc(var(--i,0) * 70ms)}
+
+/* Conversation plays out when the section is reached */
+.call .bub{opacity:0;transform:translateY(12px) scale(.985);
+  transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+.call.play .bub{opacity:1;transform:none}
+.call.play .bub:nth-child(1){transition-delay:.15s}
+.call.play .bub:nth-child(2){transition-delay:.75s}
+.call.play .bub:nth-child(4){transition-delay:2.0s}
+.call.play .bub:nth-child(5){transition-delay:2.6s}
+.call-verdict{opacity:0;transform:scale(.94);
+  transition:opacity .6s cubic-bezier(.16,1,.3,1) 3.3s,transform .6s cubic-bezier(.16,1,.3,1) 3.3s}
+.call.play .call-verdict{opacity:1;transform:none}
+
+/* Typing indicator between replies */
+.typing{display:flex;gap:4px;align-self:flex-start;padding:12px 16px;border:1px solid var(--b1);
+  background:var(--bg2);opacity:0;transition:opacity .4s}
+.call.play .typing{animation:typingCycle 2.05s linear .35s forwards}
+@keyframes typingCycle{0%{opacity:0}12%{opacity:1}70%{opacity:1}80%,100%{opacity:0;height:0;padding:0;border-width:0;margin:0}}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--text3);
+  animation:blink 1.3s ease-in-out infinite}
+.typing i:nth-child(2){animation-delay:.18s}
+.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+
+/* Journey steps light up in turn */
+.j-step{opacity:.42;transition:opacity .6s,border-color .6s,background .6s}
+.journey.play .j-step{opacity:1}
+.journey.play .j-step:nth-of-type(1){transition-delay:.1s}
+.journey.play .j-step:nth-of-type(3){transition-delay:.45s}
+.journey.play .j-step:nth-of-type(5){transition-delay:.8s}
+.journey.play .j-step:nth-of-type(7){transition-delay:1.15s}
+.j-arrow{opacity:0;transform:translateY(-5px);transition:opacity .5s,transform .5s}
+.journey.play .j-arrow{opacity:.45;transform:none}
+.journey.play .j-arrow:nth-of-type(2){transition-delay:.3s}
+.journey.play .j-arrow:nth-of-type(4){transition-delay:.65s}
+.journey.play .j-arrow:nth-of-type(6){transition-delay:1s}
+
+/* Hover lifts — small enough to feel like response, not decoration */
+.who-item{transition:background .35s,color .35s,transform .35s}
+.who-item:hover{transform:translateY(-3px)}
+.split-col li{transition:transform .35s,color .35s}
+.split-col:hover li{transform:translateX(4px)}
+.call{transition:border-color .5s,box-shadow .5s}
+.call:hover{border-color:rgba(212,170,112,.28);box-shadow:0 24px 70px rgba(0,0,0,.4)}
+
+/* Step number rings pulse once as they activate */
+.step.in .step-n{animation:ringPop .7s cubic-bezier(.16,1,.3,1)}
+@keyframes ringPop{0%{transform:scale(1)}45%{transform:scale(1.07)}100%{transform:scale(1)}}
+
+/* Calculator figures settle rather than snapping */
+.oval{transition:opacity .18s}
+.oval.tick{opacity:.55}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-line span,.hero-eyebrow,.hero-sub,.hero-cta{animation:none;opacity:1;transform:none}
+  .hero .glow.a,.hero .glow.b{animation:none}
+  .stag > *{opacity:1;transform:none;transition:none}
+  .call .bub,.call-verdict{opacity:1;transform:none;transition:none}
+  .typing{display:none}
+  .j-step{opacity:1}
+  .j-arrow{opacity:.45;transform:none}
+  #prog{display:none}
+  .step.in .step-n{animation:none}
+}
+
+
+/* ══════════════════════════════════════
+   QUALIFICATION FRAMEWORK
+══════════════════════════════════════ */
+.qframe{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:52px}
+.qf{background:var(--bg);padding:34px 26px;transition:background .4s}
+.qf:hover{background:var(--bg3)}
+.qf-n{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.qf h3{font-size:19px;margin-bottom:12px}
+.qf p{font-size:13px;color:var(--text3);line-height:1.7}
+@media(max-width:960px){.qframe{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.qframe{grid-template-columns:1fr}.qf{padding:26px 22px}}
+.qline{margin-top:46px;border-left:2px solid var(--gold);padding:6px 0 6px 28px}
+.qline p{font-family:var(--serif);font-size:clamp(18px,2.4vw,25px);color:var(--text);
+  line-height:1.5;margin-bottom:12px}
+.qline p:last-child{margin-bottom:0;color:var(--gold);font-style:italic}
+
+/* ══════════════════════════════════════
+   YOUR FIRST 30 DAYS
+══════════════════════════════════════ */
+.tl{margin-top:70px;position:relative}
+.tl::before{content:'';position:absolute;left:39px;top:24px;bottom:24px;width:1px;background:var(--b1)}
+.tl-fill{position:absolute;left:39px;top:24px;width:1px;background:var(--gold);height:0;
+  transition:height 1.5s cubic-bezier(.16,1,.3,1)}
+.tlx{display:grid;grid-template-columns:80px 1fr;gap:38px;padding:26px 0;position:relative}
+.tl-badge{width:79px;height:79px;border:1px solid var(--b2);background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  transition:all .5s;position:relative;z-index:2}
+.tl-badge em{font-style:normal;font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text3);transition:color .5s}
+.tl-badge b{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1;
+  color:var(--text3);transition:color .5s}
+.tlx.in .tl-badge em{color:var(--gold)}
+.tlx.in .tl-badge b{color:var(--gold)}
+.tlx.in .tl-badge{border-color:rgba(212,170,112,.45);color:var(--gold);background:var(--gold4)}
+.tl-b h3{font-size:clamp(20px,2.5vw,27px);margin-bottom:16px}
+.tl-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 22px;margin-bottom:20px}
+.tl-list li{font-size:13.5px;color:var(--text3);padding-left:15px;position:relative;line-height:1.5}
+.tl-list li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;
+  border-radius:50%;background:var(--gold);opacity:.55}
+.tl-out{border:1px solid rgba(212,170,112,.22);background:var(--gold4);padding:15px 20px;
+  display:inline-block;max-width:100%}
+.tl-out span{display:block;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px}
+.tl-out strong{font-family:var(--serif);font-weight:400;font-size:15.5px;color:var(--text);line-height:1.4}
+@media(max-width:680px){
+  .tl::before,.tl-fill{left:26px}
+  .tlx{grid-template-columns:53px 1fr;gap:20px;padding:20px 0}
+  .tl-badge{width:52px;height:52px}
+  .tl-badge em{font-size:6.5px}
+  .tl-badge b{font-size:15px}
+  .tl-list{grid-template-columns:1fr}
+}
+
+/* ══════════════════════════════════════
+   COMMAND CENTRE
+══════════════════════════════════════ */
+.cc{border:1px solid var(--b2);background:var(--bg);margin-top:56px;overflow:hidden}
+.cc-bar{padding:15px 22px;border-bottom:1px solid var(--b1);display:flex;align-items:center;
+  gap:9px;background:var(--bg2);flex-wrap:wrap}
+.cc-dot{width:9px;height:9px;border-radius:50%}
+.cc-name{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-left:8px}
+.cc-badge{margin-left:auto;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(212,170,112,.32);background:var(--gold4);padding:5px 12px;white-space:nowrap}
+.cc-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--b1)}
+.cc-stat{background:var(--bg2);padding:24px 18px}
+.cc-l{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-bottom:11px;line-height:1.4}
+.cc-v{font-family:var(--serif);font-size:clamp(21px,2.6vw,29px);color:var(--text);line-height:1}
+.cc-v.gold{color:var(--gold)}
+@media(max-width:900px){.cc-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.cc-stats{grid-template-columns:repeat(2,1fr)}.cc-stat{padding:18px 14px}}
+.cc-tbl-wrap{overflow-x:auto}
+.cc-tbl{width:100%;border-collapse:collapse;min-width:620px}
+.cc-tbl th{text-align:left;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text3);font-weight:500;padding:15px 22px;border-bottom:1px solid var(--b1);background:var(--bg3)}
+.cc-tbl td{font-size:13px;color:var(--text2);padding:16px 22px;border-bottom:1px solid var(--b1)}
+.cc-tbl tr:last-child td{border-bottom:none}
+.cc-tbl tbody tr{opacity:0;transform:translateY(8px);
+  transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+.cc.play .cc-tbl tbody tr{opacity:1;transform:none}
+.cc.play .cc-tbl tbody tr:nth-child(1){transition-delay:.45s}
+.cc.play .cc-tbl tbody tr:nth-child(2){transition-delay:.6s}
+.cc.play .cc-tbl tbody tr:nth-child(3){transition-delay:.75s}
+.cc.play .cc-tbl tbody tr:nth-child(4){transition-delay:.9s}
+.pill{display:inline-flex;font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border:1px solid var(--b2);color:var(--text3);white-space:nowrap}
+.pill.ok{color:var(--gold);border-color:rgba(212,170,112,.3);background:var(--gold4)}
+.cc-note{font-size:11.5px;color:var(--text3);font-style:italic;margin-top:18px;line-height:1.65}
+
+/* ══════════════════════════════════════
+   REPORTING
+══════════════════════════════════════ */
+.rep{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:52px}
+.rep-i{background:var(--bg2);padding:22px 20px;font-size:13.5px;color:var(--text2);transition:all .35s}
+.rep-i:hover{background:var(--bg3);color:var(--text)}
+@media(max-width:860px){.rep{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.rep{grid-template-columns:1fr}}
+
+/* ══════════════════════════════════════
+   BUILD VS PLUG IN
+══════════════════════════════════════ */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:56px}
+.vs-col{background:var(--bg2);padding:46px 40px}
+.vs-col.gold{background:rgba(212,170,112,.045)}
+.vs-h{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--text3);
+  padding-bottom:20px;margin-bottom:26px;border-bottom:1px solid var(--b1)}
+.vs-col.gold .vs-h{color:var(--gold)}
+.vs-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.vs-col li{font-size:14px;color:var(--text3);padding-left:22px;position:relative;line-height:1.5}
+.vs-col li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--b3)}
+.vs-col.gold li{color:var(--text2)}
+.vs-col.gold li::before{background:var(--gold);width:9px}
+.vs-count{font-size:11px;color:var(--text3);margin-top:24px;padding-top:18px;border-top:1px solid var(--b1)}
+@media(max-width:800px){.vs{grid-template-columns:1fr}.vs-col{padding:34px 26px}}
+
+/* ══════════════════════════════════════
+   FAQ
+══════════════════════════════════════ */
+.faq{margin-top:56px;border-top:1px solid var(--b1)}
+.faq-i{border-bottom:1px solid var(--b1)}
+.faq-q{width:100%;text-align:left;display:flex;align-items:flex-start;justify-content:space-between;
+  gap:26px;padding:26px 0;background:none;border:none;cursor:pointer;transition:color .3s}
+.faq-q span{font-family:var(--serif);font-size:clamp(17px,2.1vw,21px);color:var(--text);
+  line-height:1.35;transition:color .3s}
+.faq-i.open .faq-q span,.faq-q:hover span{color:var(--gold)}
+.faq-ic{flex-shrink:0;width:20px;height:20px;position:relative;margin-top:5px}
+.faq-ic::before,.faq-ic::after{content:'';position:absolute;background:var(--gold);
+  transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.faq-ic::before{top:9px;left:0;width:20px;height:1px}
+.faq-ic::after{left:9px;top:0;width:1px;height:20px}
+.faq-i.open .faq-ic::after{transform:rotate(90deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+.faq-a-in{padding:0 0 28px;font-size:14.5px;color:var(--text3);line-height:1.85;max-width:660px}
+.faq-a-in .todo{color:var(--gold);font-style:italic}
+
+/* ══ CALCULATOR ADDITION ══ */
+.calc-opt{margin-top:30px;padding-top:26px;border-top:1px solid var(--b1)}
+.calc-break{margin-top:26px;padding-top:24px;border-top:1px solid var(--b1)}
+.break-msg{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:var(--text);
+  line-height:1.5;margin-top:12px}
+
+
+/* ══════════════════════════════════════
+   AMBIENT LAYER
+   One shared canvas, positioned per-section. Cheap: ~30 dots,
+   paused when off-screen, disabled for reduced motion.
+══════════════════════════════════════ */
+.amb{position:absolute;inset:0;pointer-events:none;z-index:0}
+.amb canvas{display:block;width:100%;height:100%}
+.sec > .wrap,.hero-in,.final-in{position:relative;z-index:2}
+
+/* Cursor glow — desktop only, very soft */
+#cursorGlow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;
+  z-index:1;opacity:0;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(212,170,112,.055),transparent 62%);
+  transition:opacity .6s ease}
+#cursorGlow.on{opacity:1}
+
+/* Section edges — soft joins rather than hard black rectangles */
+.sec.joined::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--b2),transparent);pointer-events:none}
+.edge-glow{position:absolute;left:50%;transform:translateX(-50%);width:70%;height:280px;
+  pointer-events:none;background:radial-gradient(ellipse,rgba(212,170,112,.045),transparent 70%)}
+.edge-glow.top{top:-140px}
+.edge-glow.bottom{bottom:-140px}
+
+/* ══════════════════════════════════════
+   YOUR OUTBOUND TEAM
+══════════════════════════════════════ */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:56px}
+.tm{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;
+  transition:background .45s,box-shadow .45s}
+.tm:hover{background:var(--bg3);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.tm-ic{width:38px;height:38px;border:1px solid rgba(212,170,112,.3);background:var(--gold4);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:all .45s}
+.tm:hover .tm-ic{border-color:rgba(212,170,112,.6)}
+.tm-ic svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.3}
+.tm-role{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.tm h3{font-size:21px;margin-bottom:20px}
+.tm ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1}
+.tm li{font-size:13px;color:var(--text3);padding-left:16px;position:relative;line-height:1.5}
+.tm li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:1px;background:var(--gold);opacity:.6}
+.tm-line{font-family:var(--serif);font-size:14.5px;color:var(--text2);line-height:1.5;
+  padding-top:20px;border-top:1px solid var(--b1)}
+@media(max-width:900px){.team{grid-template-columns:1fr}.tm{padding:32px 26px}}
+
+/* ══════════════════════════════════════
+   MULTI-CHANNEL JOURNEY
+══════════════════════════════════════ */
+.chan{display:flex;align-items:stretch;margin-top:60px;border:1px solid var(--b1);
+  background:var(--bg2);overflow:hidden}
+.ch{flex:1;padding:30px 14px;text-align:center;position:relative;border-right:1px solid var(--b1);
+  opacity:0;transform:translateY(12px);
+  transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),background .4s}
+.ch:last-child{border-right:none}
+.chan.play .ch{opacity:1;transform:none}
+.chan.play .ch:nth-child(1){transition-delay:.05s}
+.chan.play .ch:nth-child(2){transition-delay:.17s}
+.chan.play .ch:nth-child(3){transition-delay:.29s}
+.chan.play .ch:nth-child(4){transition-delay:.41s}
+.chan.play .ch:nth-child(5){transition-delay:.53s}
+.chan.play .ch:nth-child(6){transition-delay:.65s}
+.chan.play .ch:nth-child(7){transition-delay:.77s}
+.ch:hover{background:var(--bg3)}
+.ch-dot{display:block;width:9px;height:9px;border:1px solid var(--gold);margin:0 auto 14px;position:relative;flex-shrink:0}
+.ch.final .ch-dot{background:var(--gold)}
+.ch-name{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);
+  line-height:1.4;transition:color .4s}
+.ch.final .ch-name{color:var(--gold)}
+.ch:hover .ch-name{color:var(--text2)}
+.ch-opt{display:block;font-size:8px;letter-spacing:.1em;color:var(--gold);opacity:.75;margin-top:6px}
+/* Travelling pulse along the channel strip */
+.chan-track{position:relative;height:1px;background:var(--b1);margin-top:0}
+.chan-pulse{position:absolute;top:-1px;left:0;width:46px;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0}
+.chan-track.run .chan-pulse{animation:chanRun 4.4s cubic-bezier(.5,0,.5,1) infinite}
+@keyframes chanRun{0%{left:-10%;opacity:0}8%{opacity:.85}92%{opacity:.85}100%{left:100%;opacity:0}}
+@media(max-width:820px){
+  .chan{flex-direction:column}
+  .ch{border-right:none;border-bottom:1px solid var(--b1);padding:20px 16px;
+    display:flex;align-items:center;gap:14px;text-align:left}
+  .ch:last-child{border-bottom:none}
+  .ch-dot{margin:0}
+  .chan-track{display:none}
+}
+.chan-note{font-size:12.5px;color:var(--text3);font-style:italic;margin-top:20px;line-height:1.7}
+
+/* ══════════════════════════════════════
+   HANDOVER BRIEF
+══════════════════════════════════════ */
+.brief{border:1px solid var(--b2);background:var(--bg);margin-top:56px;overflow:hidden;
+  transition:border-color .5s,box-shadow .5s}
+.brief:hover{border-color:rgba(212,170,112,.26);box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.brief-top{padding:20px 26px;border-bottom:1px solid var(--b1);background:var(--bg2);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brief-tag{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(212,170,112,.3);background:var(--gold4);padding:6px 13px}
+.brief-demo{margin-left:auto;font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--text3);border:1px solid var(--b2);padding:5px 12px}
+.brief-head{padding:30px 26px;border-bottom:1px solid var(--b1);display:grid;
+  grid-template-columns:1fr auto;gap:20px;align-items:start}
+.brief-co{font-family:var(--serif);font-size:clamp(22px,3vw,30px);color:var(--text);line-height:1.15}
+.brief-who{font-size:13.5px;color:var(--text3);margin-top:8px}
+.brief-when{text-align:right;flex-shrink:0}
+.brief-when span{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:6px}
+.brief-when strong{font-family:var(--serif);font-weight:400;font-size:17px;color:var(--gold);white-space:nowrap}
+.brief-body{padding:8px 26px 26px}
+.brief-row{padding:18px 0;border-bottom:1px solid var(--b1);
+  display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:start;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.brief.play .brief-row{opacity:1;transform:none}
+.brief.play .brief-row:nth-of-type(1){transition-delay:.15s}
+.brief.play .brief-row:nth-of-type(2){transition-delay:.27s}
+.brief.play .brief-row:nth-of-type(3){transition-delay:.39s}
+.brief.play .brief-row:nth-of-type(4){transition-delay:.51s}
+.brief.play .brief-row:nth-of-type(5){transition-delay:.63s}
+.brief-row:last-child{border-bottom:none}
+.brief-k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);padding-top:3px}
+.brief-v{font-size:14px;color:var(--text2);line-height:1.7}
+@media(max-width:640px){
+  .brief-head{grid-template-columns:1fr}
+  .brief-when{text-align:left}
+  .brief-row{grid-template-columns:1fr;gap:7px}
+}
+.know{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);
+  border:1px solid var(--b1);margin-top:44px}
+.know-i{background:var(--bg2);padding:20px 18px;font-size:13px;color:var(--text2);transition:all .35s}
+.know-i:hover{background:var(--bg3);color:var(--text)}
+@media(max-width:860px){.know{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.know{grid-template-columns:1fr}}
+
+/* ══════════════════════════════════════
+   HERO PIPELINE — travelling data points
+══════════════════════════════════════ */
+.pipe-line{position:relative}
+.pipe-spark{position:absolute;top:-1px;width:22px;height:3px;left:0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0}
+.pipe.live .pipe-spark{animation:sparkRun 3.6s linear infinite}
+.pipe.live .pipe-line:nth-of-type(2) .pipe-spark{animation-delay:0s}
+.pipe.live .pipe-line:nth-of-type(4) .pipe-spark{animation-delay:1.2s}
+.pipe.live .pipe-line:nth-of-type(6) .pipe-spark{animation-delay:2.4s}
+@keyframes sparkRun{0%{left:-20%;opacity:0}12%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}
+.pipe-dot::after{content:'';position:absolute;inset:-5px;border:1px solid var(--gold);
+  opacity:0;transform:scale(.7)}
+.pipe.live .pipe-node:last-of-type .pipe-dot::after{animation:dotRing 3.6s ease-out infinite}
+@keyframes dotRing{0%{opacity:0;transform:scale(.7)}20%{opacity:.5}60%{opacity:0;transform:scale(1.5)}100%{opacity:0}}
+@media(max-width:720px){.pipe-spark{display:none}}
+
+/* ══════════════════════════════════════
+   COMMAND CENTRE — live indicator
+══════════════════════════════════════ */
+.cc-live{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin-left:14px}
+.cc-live i{width:5px;height:5px;border-radius:50%;background:var(--gold);
+  animation:pulse 2.2s ease-in-out infinite}
+.cc-activity{height:1px;background:var(--b1);position:relative;overflow:hidden}
+.cc-activity::after{content:'';position:absolute;top:0;left:0;width:110px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cc.play .cc-activity::after{animation:ccRun 5s linear infinite}
+@keyframes ccRun{0%{left:-110px}100%{left:100%}}
+.cc-tbl tbody tr{transition:background .3s}
+.cc-tbl tbody tr:hover{background:var(--bg2)}
+.pill{transition:border-color .35s,color .35s,background .35s}
+
+/* ══════════════════════════════════════
+   QUALIFICATION CARDS — sequential activation
+══════════════════════════════════════ */
+.qf{position:relative;opacity:.5;transition:opacity .6s,background .4s}
+.qframe.lit .qf{opacity:1}
+.qframe.lit .qf:nth-child(1){transition-delay:.1s}
+.qframe.lit .qf:nth-child(2){transition-delay:.25s}
+.qframe.lit .qf:nth-child(3){transition-delay:.4s}
+.qframe.lit .qf:nth-child(4){transition-delay:.55s}
+.qframe.lit .qf:nth-child(5){transition-delay:.7s}
+.qf::after{content:'';position:absolute;left:0;top:0;width:0;height:1px;background:var(--gold);
+  transition:width .7s cubic-bezier(.16,1,.3,1)}
+.qframe.lit .qf::after{width:100%}
+.qframe.lit .qf:nth-child(2)::after{transition-delay:.15s}
+.qframe.lit .qf:nth-child(3)::after{transition-delay:.3s}
+.qframe.lit .qf:nth-child(4)::after{transition-delay:.45s}
+.qframe.lit .qf:nth-child(5)::after{transition-delay:.6s}
+
+/* ══════════════════════════════════════
+   MICRO-INTERACTIONS
+══════════════════════════════════════ */
+.btn-g:hover{box-shadow:0 12px 34px rgba(212,170,112,.18)}
+.btn-o:hover{box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.qf:hover,.rep-i:hover,.who-item:hover,.know-i:hover{box-shadow:inset 0 0 0 1px rgba(212,170,112,.12)}
+.cc-stat{transition:background .35s}
+.cc-stat:hover{background:var(--bg3)}
+.vs-col{transition:background .45s}
+.split-col,.vs-col{position:relative}
+
+@media(prefers-reduced-motion:reduce){
+  .amb,#cursorGlow{display:none}
+  .ch{opacity:1;transform:none;transition:none}
+  .brief-row{opacity:1;transform:none;transition:none}
+  .qf{opacity:1}
+  .qf::after{width:100%;transition:none}
+  .pipe-spark,.chan-pulse{display:none}
+  .cc.play .cc-activity::after{animation:none}
+  .pipe.live .pipe-node:last-of-type .pipe-dot::after{animation:none}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<div id="prog" aria-hidden="true"></div>
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="goHome()" href="#" aria-label="Sora Collective, home">
+      <span class="logo-t"><span class="logo-s">Sora</span><span class="logo-d">.</span></span>
+      <span class="logo-c">Collective</span>
+    </a>
+    <ul class="nav-links">
+      <li><a onclick="goTo('how')" href="#how">How It Works</a></li>
+      <li><a onclick="goTo('calculator')" href="#calculator">Calculator</a></li>
+      <li><a onclick="goTo('about')" href="#about">About</a></li>
+    </ul>
+    <a class="nav-cta" onclick="goTo('apply')" href="#apply">Request a Call</a>
+    <button class="ham" onclick="toggleMob()" aria-label="Open menu" aria-expanded="false" id="hamBtn">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+        <path d="M1 1h20M1 7h20M1 13h20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div id="mob">
+  <a onclick="goTo('how');toggleMob()" href="#how">How It Works</a>
+  <a onclick="goTo('calculator');toggleMob()" href="#calculator">Calculator</a>
+  <a onclick="goTo('about');toggleMob()" href="#about">About</a>
+  <a class="nav-cta" onclick="goTo('apply');toggleMob()" href="#apply">Request a Call</a>
+</div>
+
+<!-- ══════════ MAIN ══════════ -->
+<div class="page on" id="page-main">
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="grid-bg"></div>
+  <div class="glow a"></div>
+  <div class="glow b"></div>
+  <div class="amb" data-dots="34" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="hero-eyebrow"><i></i> Outbound Sales Development</span>
+      <h1><span class="hero-line"><span>We Build Your</span></span><span class="hero-line"><span>Outbound <em>Sales Pipeline.</em></span></span></h1>
+      <p class="hero-sub">Sora finds the right companies, reaches the decision-makers,
+        qualifies their interest and puts genuine sales opportunities into your calendar.</p>
+      <div class="hero-cta">
+        <a class="btn btn-g" onclick="goTo('apply')" href="#apply">Request a Strategy Call <span class="arr">&rarr;</span></a>
+        <a class="btn btn-o" onclick="goTo('how')" href="#how">See How It Works</a>
+      </div>
+
+      <div class="pipe" aria-label="Target, outreach, qualify, meeting">
+        <div class="pipe-node"><span class="pipe-dot"></span><span class="pipe-label">Target</span></div>
+        <div class="pipe-line"><span class="pipe-spark"></span></div>
+        <div class="pipe-node"><span class="pipe-dot"></span><span class="pipe-label">Outreach</span></div>
+        <div class="pipe-line"><span class="pipe-spark"></span></div>
+        <div class="pipe-node"><span class="pipe-dot"></span><span class="pipe-label">Qualify</span></div>
+        <div class="pipe-line"><span class="pipe-spark"></span></div>
+        <div class="pipe-node"><span class="pipe-dot"></span><span class="pipe-label">Meeting</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. YOUR TEAM SHOULD BE CLOSING -->
+<section class="sec" id="what">
+  <div class="wrap">
+    <span class="lbl rv">What Sora Does</span>
+    <h2 class="rv d1">Your sales team should be closing.</h2>
+    <p class="lead rv d2">Building pipeline takes time. Research, prospecting, outreach, follow-ups
+      and qualification can consume an entire sales team. Sora handles the work before the sales
+      call so your team can focus on closing.</p>
+
+    <div class="split rv d2 stag">
+      <div class="split-col gold">
+        <div class="split-h">Sora</div>
+        <ul>
+          <li>Finds</li><li>Reaches</li><li>Follows up</li><li>Calls</li><li>Qualifies</li>
+        </ul>
+      </div>
+      <div class="split-col">
+        <div class="split-h">Your team</div>
+        <ul>
+          <li>Meets</li><li>Pitches</li><li>Negotiates</li><li>Closes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section class="sec" id="how" style="background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)">
+  <div class="wrap">
+    <span class="lbl rv">How It Works</span>
+    <h2 class="rv d1">Four steps. One outbound engine.</h2>
+
+    <div class="steps" id="steps">
+      <div class="steps-fill" id="stepsFill"></div>
+      <div class="step rv">
+        <div class="step-n">01</div>
+        <div class="step-b">
+          <h3>Target</h3>
+          <p>We define your ideal customer and identify the companies and decision-makers
+             most likely to buy.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">02</div>
+        <div class="step-b">
+          <h3>Reach</h3>
+          <p>We build and manage the outbound infrastructure and run personalised
+             outreach campaigns.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">03</div>
+        <div class="step-b">
+          <h3>Qualify</h3>
+          <p>Your dedicated Sora SDR speaks with interested prospects and confirms whether
+             a genuine opportunity exists.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">04</div>
+        <div class="step-b">
+          <h3>Meet</h3>
+          <p>Qualified opportunities are placed directly into your sales calendar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HUMAN QUALIFICATION -->
+<section class="sec qual" id="qualification">
+  <div class="wrap">
+    <span class="lbl rv">Human Qualification</span>
+    <h2 class="rv d1">Qualified meetings.<br>Not just booked meetings.</h2>
+    <p class="lead rv d2">We don&rsquo;t send every positive reply into your calendar. A dedicated
+      Sora SDR follows up, speaks directly with the prospect and qualifies the opportunity
+      before your sales team gets involved.</p>
+
+    <div class="qual-grid">
+      <div class="call rv d2">
+        <div class="call-top">
+          <div class="call-av">S</div>
+          <div>
+            <div class="call-who">Sora SDR</div>
+            <div class="call-role">Qualification call</div>
+          </div>
+          <span class="call-live"><i></i>Live</span>
+        </div>
+        <div class="call-body">
+          <div class="bub them">
+            <div class="bub-who">Prospect</div>
+            Saw your email. We are looking at this area but I&rsquo;m not sure we&rsquo;re ready yet.
+          </div>
+          <div class="bub sora">
+            <div class="bub-who">Sora SDR</div>
+            Understood. What&rsquo;s driving the timing &mdash; budget, or something that needs to happen first?
+          </div>
+          <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="bub them">
+            <div class="bub-who">Prospect</div>
+            Budget is approved. We need sign-off from our CTO before we commit.
+          </div>
+          <div class="bub sora">
+            <div class="bub-who">Sora SDR</div>
+            That&rsquo;s useful. Would it help to get your CTO on the first call so you&rsquo;re not
+            relaying it second-hand?
+          </div>
+        </div>
+        <div class="call-foot">
+          <span style="font-size:11.5px;color:var(--text3)">Budget confirmed &middot; Decision-maker identified</span>
+          <span class="call-verdict">Qualified</span>
+        </div>
+      </div>
+
+      <div class="rv d3">
+        <div class="journey">
+          <div class="j-step">
+            <span class="j-name">Interested prospect</span>
+            <span class="j-tag">Replied</span>
+          </div>
+          <div class="j-arrow">&darr;</div>
+          <div class="j-step">
+            <span class="j-name">Sora SDR call</span>
+            <span class="j-tag">Human conversation</span>
+          </div>
+          <div class="j-arrow">&darr;</div>
+          <div class="j-step">
+            <span class="j-name">Qualified opportunity</span>
+            <span class="j-tag">Verified</span>
+          </div>
+          <div class="j-arrow">&darr;</div>
+          <div class="j-step final">
+            <span class="j-name">Your calendar</span>
+            <span class="j-tag">Booked</span>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--text3);margin-top:26px;line-height:1.75">
+          A reply is not an opportunity. The call in between is what makes the difference
+          between a full calendar and a productive one.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:90px">
+      <h3 class="rv" style="font-family:var(--serif);font-size:clamp(26px,3.8vw,40px);margin-bottom:18px">
+        What makes an opportunity qualified?</h3>
+      <p class="lead rv d1">Before a meeting reaches your sales calendar, we aim to establish
+        five things.</p>
+
+      <div class="qframe rv d2 stag">
+        <div class="qf">
+          <div class="qf-n">01 &mdash; Need</div>
+          <h3>Need</h3>
+          <p>Is there a genuine business problem or requirement?</p>
+        </div>
+        <div class="qf">
+          <div class="qf-n">02 &mdash; Relevance</div>
+          <h3>Relevance</h3>
+          <p>Could your product or service realistically solve it?</p>
+        </div>
+        <div class="qf">
+          <div class="qf-n">03 &mdash; Authority</div>
+          <h3>Authority</h3>
+          <p>Are we speaking with the right person, or someone who can influence the decision?</p>
+        </div>
+        <div class="qf">
+          <div class="qf-n">04 &mdash; Timing</div>
+          <h3>Timing</h3>
+          <p>Is there a reason to explore the solution now?</p>
+        </div>
+        <div class="qf">
+          <div class="qf-n">05 &mdash; Intent</div>
+          <h3>Intent</h3>
+          <p>Has the prospect genuinely agreed to have a sales conversation?</p>
+        </div>
+      </div>
+
+      <div class="qline rv">
+        <p>A reply is not a lead. A calendar booking is not automatically an opportunity.</p>
+        <p>We qualify the conversation before it reaches your sales team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ THE HANDOVER ══ -->
+<section class="sec joined" id="handover">
+  <div class="edge-glow top" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="lbl rv">The Handover</span>
+    <h2 class="rv d1">Your team should enter the meeting with context.</h2>
+    <p class="lead rv d2">When a qualified opportunity reaches your calendar, the handover should
+      tell your salesperson more than a name and a meeting time.</p>
+
+    <div class="brief rv d2" id="brief">
+      <div class="brief-top">
+        <span class="brief-tag">Qualified Opportunity</span>
+        <span class="brief-demo">Example Opportunity Brief &mdash; Demonstration Data</span>
+      </div>
+      <div class="brief-head">
+        <div>
+          <div class="brief-co">Northstar Systems</div>
+          <div class="brief-who">Sarah Mitchell &nbsp;&middot;&nbsp; Chief Technology Officer</div>
+        </div>
+        <div class="brief-when">
+          <span>Meeting</span>
+          <strong>Thursday &middot; 14:30</strong>
+        </div>
+      </div>
+      <div class="brief-body">
+        <div class="brief-row">
+          <div class="brief-k">Why they&rsquo;re interested</div>
+          <div class="brief-v">Reviewing options to modernise their current cloud infrastructure.</div>
+        </div>
+        <div class="brief-row">
+          <div class="brief-k">Current situation</div>
+          <div class="brief-v">Legacy environment causing scalability issues.</div>
+        </div>
+        <div class="brief-row">
+          <div class="brief-k">Timing</div>
+          <div class="brief-v">Planning discussions currently underway.</div>
+        </div>
+        <div class="brief-row">
+          <div class="brief-k">Decision process</div>
+          <div class="brief-v">CTO involved. Finance approval required later in the process.</div>
+        </div>
+        <div class="brief-row">
+          <div class="brief-k">Sora SDR notes</div>
+          <div class="brief-v">Interested in understanding migration approach, timeline and
+            commercial model.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px;color:var(--text3);font-style:italic;margin-top:18px" class="rv">
+      Example brief using demonstration data. Not a real prospect or customer.</p>
+
+    <div style="margin-top:60px">
+      <h3 class="rv" style="font-family:var(--serif);font-size:clamp(21px,2.8vw,29px);margin-bottom:8px">
+        Before the call, your team can understand:</h3>
+      <div class="know rv d1 stag">
+        <div class="know-i">Who they&rsquo;re meeting</div>
+        <div class="know-i">Why the prospect engaged</div>
+        <div class="know-i">What the prospect cares about</div>
+        <div class="know-i">Relevant pain points</div>
+        <div class="know-i">Qualification notes</div>
+        <div class="know-i">Decision context</div>
+        <div class="know-i">The next step</div>
+        <div class="know-i">Meeting time</div>
+      </div>
+      <div class="qline rv" style="margin-top:44px">
+        <p>You don&rsquo;t walk into the meeting cold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ YOUR FIRST 30 DAYS ══ -->
+<section class="sec" id="first30">
+  <div class="wrap">
+    <span class="lbl rv">Your First 30 Days</span>
+    <h2 class="rv d1">From strategy to live outreach.</h2>
+    <p class="lead rv d2">Once we agree that Sora is the right fit, we move quickly from
+      understanding your business to building and launching your outbound engine.</p>
+
+    <div class="tl" id="tl">
+      <div class="tl-fill" id="tlFill"></div>
+
+      <div class="tlx rv">
+        <div class="tl-badge"><em>Week</em><b>1</b></div>
+        <div class="tl-b">
+          <h3>Strategy &amp; ICP</h3>
+          <ul class="tl-list"><li>What you sell</li><li>Ideal customers</li><li>Average deal size</li><li>Existing customers</li><li>Competitors</li><li>Current sales process</li><li>Geographic targets</li><li>Buyer personas</li><li>Common objections</li><li>Value proposition</li></ul>
+          <div class="tl-out"><span>Output</span>
+            <strong>Your outbound strategy and target account profile.</strong></div>
+        </div>
+      </div>
+
+      <div class="tlx rv">
+        <div class="tl-badge"><em>Week</em><b>2</b></div>
+        <div class="tl-b">
+          <h3>Infrastructure &amp; Campaign Build</h3>
+          <ul class="tl-list"><li>Target lists</li><li>Prospect data</li><li>Domains</li><li>Email inboxes</li><li>Outreach infrastructure</li><li>Messaging</li><li>Email sequences</li><li>Follow-up sequences</li><li>Calling strategy</li><li>Qualification framework</li></ul>
+          <div class="tl-out"><span>Output</span>
+            <strong>Your outbound engine ready for launch.</strong></div>
+        </div>
+      </div>
+
+      <div class="tlx rv">
+        <div class="tl-badge"><em>Week</em><b>3</b></div>
+        <div class="tl-b">
+          <h3>Go Live</h3>
+          <ul class="tl-list"><li>Campaigns launch</li><li>Prospects contacted</li><li>Replies managed</li><li>Follow-ups begin</li><li>Calling begins</li><li>Interested prospects worked by your SDR</li><li>Early objections recorded</li><li>Market feedback captured</li></ul>
+          <div class="tl-out"><span>Output</span>
+            <strong>Live conversations entering the pipeline.</strong></div>
+        </div>
+      </div>
+
+      <div class="tlx rv">
+        <div class="tl-badge"><em>Week</em><b>4+</b></div>
+        <div class="tl-b">
+          <h3>Optimise &amp; Scale</h3>
+          <ul class="tl-list"><li>Response rates</li><li>Positive replies</li><li>Objections</li><li>Targeting</li><li>Messaging</li><li>Qualification quality</li><li>Meetings</li><li>Market feedback</li></ul>
+          <div class="tl-out"><span>Output</span>
+            <strong>A better outbound engine every month.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMMAND CENTRE ══ -->
+<section class="sec joined" id="command" style="background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)">
+  <div class="amb" data-dots="30" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="lbl rv">Complete Visibility</span>
+    <h2 class="rv d1">Your outbound command centre.</h2>
+    <p class="lead rv d2">You should never have to wonder what your outbound team is doing.
+      Sora gives you visibility into activity, conversations, opportunities and meetings
+      generated by your outbound engine.</p>
+
+    <div class="cc rv d2" id="cc">
+      <div class="cc-bar">
+        <span class="cc-dot" style="background:#ff5f57"></span>
+        <span class="cc-dot" style="background:#febc2e"></span>
+        <span class="cc-dot" style="background:#28c840"></span>
+        <span class="cc-name">Outbound Overview</span>
+        <span class="cc-live"><i></i>Live Campaign View</span>
+        <span class="cc-badge">Platform Preview &mdash; Example Data</span>
+      </div>
+
+      <div class="cc-stats">
+        <div class="cc-stat"><div class="cc-l">Prospects Contacted</div>
+          <div class="cc-v" data-count="1284">0</div></div>
+        <div class="cc-stat"><div class="cc-l">Conversations</div>
+          <div class="cc-v" data-count="327">0</div></div>
+        <div class="cc-stat"><div class="cc-l">Positive Responses</div>
+          <div class="cc-v" data-count="64">0</div></div>
+        <div class="cc-stat"><div class="cc-l">Qualified Opportunities</div>
+          <div class="cc-v gold" data-count="21">0</div></div>
+        <div class="cc-stat"><div class="cc-l">Meetings Booked</div>
+          <div class="cc-v gold" data-count="14">0</div></div>
+        <div class="cc-stat"><div class="cc-l">Pipeline Value</div>
+          <div class="cc-v" data-count="420000" data-money="1">0</div></div>
+      </div>
+
+      <div class="cc-activity" aria-hidden="true"></div>
+
+      <div class="cc-tbl-wrap">
+        <table class="cc-tbl">
+          <thead><tr><th>Company</th><th>Contact</th><th>Status</th><th>Next Step</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text)">Acme Group</td><td>CTO</td>
+                <td><span class="pill ok">Qualified</span></td><td>Meeting booked</td></tr>
+            <tr><td style="color:var(--text)">Vertex Systems</td><td>Head of IT</td>
+                <td><span class="pill">Interested</span></td><td>SDR follow-up</td></tr>
+            <tr><td style="color:var(--text)">Northstar</td><td>CIO</td>
+                <td><span class="pill">Conversation</span></td><td>Call scheduled</td></tr>
+            <tr><td style="color:var(--text)">Atlas Consulting</td><td>VP Technology</td>
+                <td><span class="pill ok">Qualified</span></td><td>Meeting booked</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="cc-note rv">Interface preview using demonstration data. Company names and figures
+      are illustrative and do not represent Sora results or real customers.</p>
+
+    <!-- Reporting -->
+    <div style="margin-top:100px">
+      <h3 class="rv" style="font-family:var(--serif);font-size:clamp(26px,3.8vw,40px);margin-bottom:18px">
+        Know exactly what is happening.</h3>
+      <p class="lead rv d1">Outbound should never feel like a black box. Sora provides visibility
+        across the entire top of your sales funnel.</p>
+
+      <div class="rep rv d2 stag">
+        <div class="rep-i">Prospects contacted</div>
+        <div class="rep-i">Campaign activity</div>
+        <div class="rep-i">Response rates</div>
+        <div class="rep-i">Positive responses</div>
+        <div class="rep-i">Conversations</div>
+        <div class="rep-i">Calls</div>
+        <div class="rep-i">Qualified opportunities</div>
+        <div class="rep-i">Meetings booked</div>
+        <div class="rep-i">Pipeline created</div>
+        <div class="rep-i">Market feedback</div>
+        <div class="rep-i">Common objections</div>
+        <div class="rep-i">Campaign learnings</div>
+      </div>
+
+      <div class="qline rv" style="margin-top:44px">
+        <p>We don&rsquo;t just report activity.</p>
+        <p>We use the data to improve targeting, messaging and qualification over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BUILD INTERNALLY VS SORA ══ -->
+<section class="sec" id="vs">
+  <div class="wrap">
+    <span class="lbl rv">The Alternative</span>
+    <h2 class="rv d1">Don&rsquo;t build an outbound department.<br>Plug into one.</h2>
+    <p class="lead rv d2">Building outbound internally means much more than hiring one salesperson.</p>
+
+    <div class="vs rv d2">
+      <div class="vs-col">
+        <div class="vs-h">Build internally</div>
+        <ul><li>Recruit SDRs</li><li>Pay salaries</li><li>Pay commissions</li><li>Buy prospect data</li><li>Buy domains</li><li>Set up inboxes</li><li>Buy sending infrastructure</li><li>Buy diallers</li><li>Build messaging</li><li>Train SDRs</li><li>Manage activity</li><li>Coach performance</li><li>Build reporting</li><li>Replace people who leave</li><li>Continuously optimise campaigns</li></ul>
+        <div class="vs-count">Fifteen separate responsibilities, before a single meeting is booked.</div>
+      </div>
+      <div class="vs-col gold">
+        <div class="vs-h">Plug into Sora</div>
+        <ul><li>Strategy</li><li>Targeting</li><li>Prospect data</li><li>Outreach infrastructure</li><li>Campaign management</li><li>Dedicated SDR</li><li>Calling</li><li>Follow-ups</li><li>Human qualification</li><li>Meeting booking</li><li>Reporting</li><li>Optimisation</li></ul>
+        <div class="vs-count">One engagement. One point of contact.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:64px" class="rv">
+      <h3 style="font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);color:var(--gold);
+        font-style:italic;margin-bottom:22px">One partner. One outbound engine.</h3>
+      <p style="max-width:560px;margin:0 auto;font-size:15px;line-height:1.8">
+        Your team stays focused on the part they do best:
+        <strong style="color:var(--text);font-weight:400">meet, pitch, negotiate, close.</strong>
+        Sora handles everything before that conversation.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ YOUR OUTBOUND TEAM ══ -->
+<section class="sec joined" id="team">
+  <div class="edge-glow top" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="lbl rv">Your Outbound Team</span>
+    <h2 class="rv d1">More than software.<br>A team behind your pipeline.</h2>
+    <p class="lead rv d2">When you work with Sora you&rsquo;re not just getting tools or campaigns.
+      You&rsquo;re plugging an outbound sales development function into your business.</p>
+
+    <div class="team rv d2">
+      <div class="tm">
+        <div class="tm-ic"><svg viewBox="0 0 24 24"><path d="M20 15.5a2 2 0 01-2 2 16 16 0 01-14-14 2 2 0 012-2h2.5l1.5 4-2 1.5a12 12 0 005 5l1.5-2 4 1.5z" stroke-linejoin="round"/></svg></div>
+        <div class="tm-role">Role 01</div>
+        <h3>Dedicated SDR</h3>
+        <ul><li>Prospect conversations</li><li>Follow-ups</li><li>Calling</li><li>Qualification</li><li>Objection discovery</li><li>Meeting booking</li><li>Prospect notes</li></ul>
+        <div class="tm-line">The person working the conversations.</div>
+      </div>
+      <div class="tm">
+        <div class="tm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <div class="tm-role">Role 02</div>
+        <h3>Campaign Strategist</h3>
+        <ul><li>ICP development</li><li>Market research</li><li>Targeting strategy</li><li>Messaging</li><li>Campaign structure</li><li>Positioning</li><li>Optimisation</li></ul>
+        <div class="tm-line">The person building the strategy behind the outreach.</div>
+      </div>
+      <div class="tm">
+        <div class="tm-ic"><svg viewBox="0 0 24 24"><path d="M3 19V9M9 19V4M15 19v-7M21 19v-11" stroke-linecap="round"/></svg></div>
+        <div class="tm-role">Role 03</div>
+        <h3>Account Lead</h3>
+        <ul><li>Campaign reviews</li><li>Reporting</li><li>Market feedback</li><li>Performance discussions</li><li>Client communication</li><li>Strategic adjustments</li></ul>
+        <div class="tm-line">The person keeping Sora aligned with your sales goals.</div>
+      </div>
+    </div>
+
+    <div class="qline rv" style="margin-top:48px">
+      <p>You&rsquo;re not buying another outbound tool.</p>
+      <p>You&rsquo;re adding an outbound team to your business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MULTI-CHANNEL ══ -->
+<section class="sec joined" id="channels" style="background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)">
+  <div class="amb" data-dots="26" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="lbl rv">Multi-Channel Outbound</span>
+    <h2 class="rv d1">One prospect. Multiple touchpoints.</h2>
+    <p class="lead rv d2">Good outbound is rarely one email. Sora builds coordinated outreach
+      designed to create conversations across multiple touchpoints.</p>
+
+    <div class="chan rv d2" id="chan">
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">Email</span></div>
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">Follow-up</span></div>
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">LinkedIn
+        <span class="ch-opt">Optional</span></span></div>
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">Call</span></div>
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">Conversation</span></div>
+      <div class="ch"><span class="ch-dot"></span><span class="ch-name">Qualify</span></div>
+      <div class="ch final"><span class="ch-dot"></span><span class="ch-name">Meeting</span></div>
+    </div>
+    <div class="chan-track" id="chanTrack"><span class="chan-pulse"></span></div>
+
+    <p class="chan-note rv">The exact channel mix depends on your market, buyer and campaign
+      strategy. Not every channel is used on every campaign.</p>
+
+    <div style="margin-top:76px">
+      <h3 class="rv" style="font-family:var(--serif);font-size:clamp(24px,3.4vw,36px);margin-bottom:18px">
+        We don&rsquo;t depend on one message.</h3>
+      <p class="lead rv d1">We combine personalised outreach, follow-up sequences, calling,
+        human conversations and qualification to give prospects multiple opportunities to engage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CALCULATOR -->
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <span class="lbl rv">Pipeline Value</span>
+    <h2 class="rv d1">What could a stronger pipeline be worth?</h2>
+    <p class="lead rv d2">Adjust the numbers to match your business.</p>
+
+    <div class="calc rv d2">
+      <div class="calc-in">
+        <div class="cur" id="cur" role="group" aria-label="Currency">
+          <button class="on" data-cur="USD">USD</button>
+          <button data-cur="EUR">EUR</button>
+          <button data-cur="GBP">GBP</button>
+          <button data-cur="AED">AED</button>
+        </div>
+
+        <div class="cfield">
+          <div class="crow"><span class="clabel">Average deal value</span>
+            <span class="cval" id="vDeal">$25,000</span></div>
+          <input type="range" id="rDeal" min="1000" max="250000" step="1000" value="25000"
+                 aria-label="Average deal value">
+        </div>
+        <div class="cfield">
+          <div class="crow"><span class="clabel">Qualified meetings per month</span>
+            <span class="cval" id="vMeet">10</span></div>
+          <input type="range" id="rMeet" min="1" max="60" step="1" value="10"
+                 aria-label="Qualified meetings per month">
+        </div>
+        <div class="cfield">
+          <div class="crow"><span class="clabel">Close rate</span>
+            <span class="cval" id="vRate">20%</span></div>
+          <input type="range" id="rRate" min="1" max="80" step="1" value="20"
+                 aria-label="Close rate percentage">
+        </div>
+
+        <div class="calc-opt">
+          <div class="cfield">
+            <div class="crow"><span class="clabel">Example monthly outbound investment</span>
+              <span class="cval" id="vInv">$5,000</span></div>
+            <input type="range" id="rInv" min="1000" max="20000" step="500" value="5000"
+                   aria-label="Example monthly outbound investment">
+            <p style="font-size:11px;color:var(--text3);margin-top:10px;line-height:1.6">
+              Optional. An illustrative figure for comparison &mdash; not Sora pricing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="oblock">
+          <div class="olabel">Potential customers / month</div>
+          <div class="oval" id="oCust">2</div>
+        </div>
+        <div class="oblock">
+          <div class="olabel">Potential monthly revenue</div>
+          <div class="oval gold" id="oMonth">$50,000</div>
+        </div>
+        <div class="oblock">
+          <div class="olabel">Potential annual revenue</div>
+          <div class="oval" id="oYear">$600,000</div>
+        </div>
+        <div class="calc-break">
+          <div class="olabel">Customers required to cover investment</div>
+          <div class="oval" id="oBreak">0.2</div>
+          <p class="break-msg" id="oBreakMsg"></p>
+        </div>
+        <p class="calc-note">Illustrative projection only. Actual results vary based on market,
+          offer, sales process and conversion rates. Break-even examples compare entered deal
+          values with entered investment only. They do not predict or guarantee Sora performance.</p>
+      </div>
+    </div>
+
+    <div class="calc-cta rv">
+      <p>Want to build the pipeline behind these numbers?</p>
+      <a class="btn btn-g" onclick="goTo('apply')" href="#apply">Request a Strategy Call <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHO IT'S FOR -->
+<section class="sec tight" id="about" style="background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)">
+  <div class="wrap">
+    <span class="lbl rv">Who It&rsquo;s For</span>
+    <h2 class="rv d1">Built for high-value B2B sales.</h2>
+    <p class="lead rv d2">Sora works best with businesses where one new customer can
+      materially impact revenue.</p>
+
+    <div class="who rv d2 stag">
+      <div class="who-item">Technology Consulting</div>
+      <div class="who-item">Enterprise Software</div>
+      <div class="who-item">SaaS</div>
+      <div class="who-item">Cybersecurity</div>
+      <div class="who-item">Cloud &amp; Data</div>
+      <div class="who-item">Professional Services</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. EVERYTHING INCLUDED -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="incl">
+      <span class="lbl rv" style="margin-bottom:30px">Everything Included</span>
+      <p class="line rv d1">Strategy, data, domains, inboxes, outreach infrastructure, campaigns,
+        dedicated SDR, calling, qualification and meeting booking are all managed by Sora.</p>
+      <div class="stamp rv d2">One partner.<br>One outbound engine.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FAQ ══ -->
+<section class="sec" id="faq" style="background:var(--bg2);border-top:1px solid var(--b1)">
+  <div class="wrap">
+    <span class="lbl rv">Questions</span>
+    <h2 class="rv d1">Before we speak.</h2>
+
+    <div class="faq rv d2">
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What does Sora actually handle?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          Sora manages the outbound work before your sales call: strategy, targeting,
+          prospecting, outreach infrastructure, campaign management, follow-ups, calling,
+          qualification and meeting booking. The exact scope is agreed before the engagement begins.
+        </div></div>
+      </div>
+
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Does Sora close the customers for us?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          No. Sora builds and manages the outbound pipeline. Your team handles the sales meeting,
+          pitch, proposal, negotiation and close.
+        </div></div>
+      </div>
+
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Are meetings guaranteed?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          No. Outbound performance varies depending on your market, offer, pricing, target customer
+          and other factors. Sora does not guarantee a fixed number of meetings, customers or revenue.
+        </div></div>
+      </div>
+
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What counts as a qualified opportunity?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          We aim to establish whether there is a relevant business need, a genuine fit, an
+          appropriate stakeholder, reasonable timing and real intent to explore a conversation
+          before the opportunity reaches your team.
+        </div></div>
+      </div>
+
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Do we need our own sales team?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          You need someone capable of taking qualified sales conversations and progressing them
+          through your sales process. For smaller businesses, that may simply be the founder.
+        </div></div>
+      </div>
+
+      <div class="faq-i">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>How quickly can we launch?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">
+          The setup period depends on campaign requirements, target market and the infrastructure
+          needed. During your strategy call we can explain what launch would look like for your
+          business.
+        </div></div>
+      </div>
+
+
+      <!-- TODO: Add data ownership FAQ once engagement terms are finalised -->
+    </div>
+  </div>
+</section>
+
+<!-- 8. FINAL CTA -->
+<section class="sec final">
+  <div class="glow"></div>
+  <div class="amb" data-dots="24" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="final-in">
+      <h2 class="rv">Ready for more qualified sales conversations?</h2>
+      <p class="rv d1">Tell us what you sell and who you want to reach. We&rsquo;ll show you how
+        Sora could build the outbound engine behind your sales team.</p>
+      <div class="rv d2">
+        <a class="btn btn-g" onclick="goTo('apply')" href="#apply">Request a Strategy Call <span class="arr">&rarr;</span></a>
+        <small>30-minute strategy call. No obligation.</small>
+        <p style="font-size:13px;color:var(--text3);max-width:520px;margin:20px auto 0;line-height:1.75">
+          We&rsquo;ll review your offer, target market and current sales process before the call
+          so the conversation is useful from the start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY CALL FORM -->
+<section class="sec formsec" id="apply">
+  <div class="wrap">
+    <div class="fwrap">
+      <div style="text-align:center;margin-bottom:52px">
+        <span class="lbl rv">Strategy Call</span>
+        <h2 class="rv d1">Request your strategy call.</h2>
+        <p class="rv d2" style="font-size:15px;color:var(--text3);margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto">
+          We&rsquo;ll review your offer, target market and current sales process before the call,
+          so the conversation is useful from the start.</p>
+      </div>
+
+      <div class="form-error" id="formError" role="alert"></div>
+
+      <form id="callForm" onsubmit="submitForm(event)" novalidate>
+        <div class="fgrid">
+          <div class="fg"><label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required placeholder="Jane Okafor"></div>
+          <div class="fg"><label for="f-email">Work email</label>
+            <input id="f-email" name="email" type="email" required placeholder="jane@company.com"></div>
+          <div class="fg"><label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" required placeholder="Company name"></div>
+          <div class="fg"><label for="f-site">Website</label>
+            <input id="f-site" name="website" type="text" placeholder="company.com"></div>
+          <div class="fg full"><label for="f-sell">What do you sell?</label>
+            <input id="f-sell" name="whatYouSell" type="text" required
+                   placeholder="e.g. cloud migration consulting for mid-market financial services"></div>
+          <div class="fg"><label for="f-deal">Average deal value</label>
+            <input id="f-deal" name="averageDealValue" type="text" placeholder="e.g. $40,000"></div>
+          <div class="fg"><label for="f-target">Target customer</label>
+            <input id="f-target" name="targetCustomer" type="text"
+                   placeholder="e.g. CTOs at 200+ employee firms"></div>
+          <div class="fg"><label for="f-rev">Current monthly revenue</label>
+            <select id="f-rev" name="monthlyRevenue">
+              <option value="">Select&hellip;</option>
+              <option>Pre-revenue</option><option>Under $10k</option><option>$10k&ndash;$50k</option>
+              <option>$50k&ndash;$100k</option><option>$100k&ndash;$500k</option><option>$500k+</option>
+            </select></div>
+          <div class="fg"><label for="f-team">Current sales team size</label>
+            <select id="f-team" name="salesTeamSize">
+              <option value="">Select&hellip;</option>
+              <option>Founder-led / just me</option><option>2&ndash;5</option><option>6&ndash;10</option>
+              <option>11&ndash;25</option><option>25+</option>
+            </select></div>
+          <div class="fg"><label for="f-source">How are you generating opportunities?</label>
+            <select id="f-source" name="opportunitySource">
+              <option value="">Select&hellip;</option>
+              <option>Referrals</option><option>Inbound</option><option>Outbound</option>
+              <option>Paid advertising</option><option>Partnerships</option>
+              <option>Events / networking</option><option>Existing customers</option>
+              <option>Combination</option><option>Other</option>
+            </select></div>
+          <div class="fg"><label for="f-region">Primary sales region</label>
+            <select id="f-region" name="salesRegion">
+              <option value="">Select&hellip;</option>
+              <option>UK</option><option>Europe</option><option>North America</option>
+              <option>Middle East</option><option>Global</option><option>Other</option>
+            </select></div>
+          <div class="fg full"><label for="f-chall">Current sales challenge</label>
+            <textarea id="f-chall" name="salesChallenge" rows="4"
+              placeholder="What is getting in the way of pipeline right now?"></textarea></div>
+        </div>
+        <button type="submit" class="f-btn">Request My Strategy Call</button>
+        <p style="font-size:11.5px;color:var(--text3);text-align:center;margin-top:16px">
+          We use your details to review your enquiry and prepare for the strategy call.
+          See our <a onclick="openLegal('privacy')" href="#privacy"
+            style="color:var(--gold);border-bottom:1px solid rgba(212,170,112,.35)">Privacy Policy</a>
+          for more information.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <h3>Request received.</h3>
+        <p>Thank you. We&rsquo;ll review what you&rsquo;ve told us and come back to you within
+           one business day to arrange the call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="logo" style="align-items:flex-start" onclick="goHome()" href="#">
+          <span class="logo-t"><span class="logo-s">Sora</span><span class="logo-d">.</span></span>
+          <span class="logo-c" style="padding-left:0">Collective</span>
+        </a>
+        <div class="foot-tag">We build the pipeline. Your team closes.</div>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Service</h4>
+          <a onclick="goTo('how')" href="#how">How It Works</a>
+          <a onclick="goTo('qualification')" href="#qualification">Qualification</a>
+          <a onclick="goTo('calculator')" href="#calculator">Calculator</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a onclick="goTo('about')" href="#about">Who It&rsquo;s For</a>
+                  <a onclick="goTo('apply')" href="#apply">Request a Call</a>
+        </div>
+        <div class="foot-col">
+          <h4>Legal</h4>
+          <a onclick="openLegal('privacy')" href="#privacy">Privacy Policy</a>
+          <a onclick="openLegal('terms')" href="#terms">Terms of Service</a>
+          <a href="mailto:info@soracollective.co">info@soracollective.co</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="yr">2026</span> Sora Collective. All rights reserved.</span>
+      <span>Based in Dubai. Working globally.</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-main -->
+
+
+<!-- ══════════ PRIVACY ══════════ -->
+<div class="page" id="page-privacy">
+  <div class="wrap"><div class="legal">
+    <a class="back" onclick="goHome()" href="#">&larr; Back to site</a>
+    <!-- INTERNAL: this policy still requires professional legal review before relying on it. -->
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: August 2026</p>
+
+    <h2>1. Who we are</h2>
+    <p>Sora Collective provides outbound sales development services to business
+      customers. You can contact us at <a href="mailto:info@soracollective.co">info@soracollective.co</a>.</p>
+
+    <h2>2. Information we collect</h2>
+    <p>When you request a strategy call we collect the name, work email, company,
+      website, description of what you sell, average deal value, target customer
+      and sales challenge that you provide.</p>
+    <p>We also collect standard technical information such as IP address, browser
+      type and pages visited.</p>
+
+    <h2>3. How we use it</h2>
+    <ul>
+      <li>To respond to your enquiry and prepare for a strategy call</li>
+      <li>To assess whether our service is a fit for your business</li>
+      <li>To provide services if you become a client</li>
+      <li>To meet legal and accounting obligations</li>
+    </ul>
+    <p>We do not sell your information, and we do not share it with third parties
+      for their own marketing.</p>
+
+    <h2>4. Data we process on behalf of clients</h2>
+    <p>When delivering outbound services we process business contact information
+      relating to prospects. Where we act as a processor on behalf of a client,
+      that processing is governed by our agreement with that client. We handle
+      such data in accordance with applicable data protection law.</p>
+
+    <h2>5. Service providers</h2>
+    <p>We use third-party providers for website hosting, form submissions, email
+      and scheduling. These providers process data on our instructions.</p>
+
+    <h2>6. Retention</h2>
+    <p>Enquiry information is retained for up to 24 months from your last contact
+      with us unless you ask us to delete it sooner. Client records are retained
+      for the duration of the engagement and as required by law thereafter.</p>
+
+    <h2>7. Your rights</h2>
+    <p>Depending on your location you may have the right to access, correct,
+      delete or restrict processing of your personal data, and to object to
+      processing. Contact <a href="mailto:info@soracollective.co">info@soracollective.co</a>
+      to exercise any of these rights.</p>
+
+    <h2>8. Security</h2>
+    <p>We apply reasonable technical and organisational measures to protect
+      information. No method of transmission over the internet is completely
+      secure, and we cannot guarantee absolute security.</p>
+
+    <h2>9. Changes</h2>
+    <p>We may update this policy. The date at the top reflects the most recent
+      revision.</p>
+  </div></div>
+</div>
+
+<!-- ══════════ TERMS ══════════ -->
+<div class="page" id="page-terms">
+  <div class="wrap"><div class="legal">
+    <a class="back" onclick="goHome()" href="#">&larr; Back to site</a>
+    <!-- INTERNAL: these terms still require professional legal review before relying on them. -->
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: August 2026</p>
+
+    <h2>1. These terms</h2>
+    <p>These terms govern your use of this website. Services are provided under a
+      separate written agreement between Sora Collective and the client. Where
+      that agreement conflicts with these terms, the agreement takes precedence.</p>
+
+    <h2>2. The service</h2>
+    <p>Sora Collective provides outbound sales development services, which may
+      include targeting and research, outreach infrastructure, campaign
+      management, a dedicated sales development representative, prospect calling,
+      qualification and meeting booking. The specific scope is set out in the
+      client agreement.</p>
+
+    <h2>3. No guarantee of results</h2>
+    <p>We do not guarantee any particular number of meetings, opportunities,
+      customers, revenue or return on investment. Outcomes depend on your market,
+      your offer, your pricing, your sales process and factors outside our
+      control.</p>
+    <p>Any figures shown on this website, including in the pipeline calculator,
+      are illustrative only. They are not projections, forecasts or promises of
+      performance.</p>
+
+    <h2>4. Client responsibilities</h2>
+    <p>Effective outbound requires input from you. You are responsible for
+      attending booked meetings, providing accurate information about your offer
+      and market, responding to reasonable requests for input, and conducting
+      your own sales process after a meeting is booked.</p>
+
+    <h2>5. Compliance</h2>
+    <p>We conduct outreach in accordance with applicable law. You are responsible
+      for ensuring that your own use of any information, contacts or materials
+      arising from the engagement complies with the law applicable to you.</p>
+
+    <h2>6. Intellectual property</h2>
+    <p>All content on this website, including text, design, graphics and tools,
+      is owned by Sora Collective and may not be reproduced without permission.</p>
+
+    <h2>7. Confidentiality</h2>
+    <p>Each party shall keep confidential the non-public information of the other
+      party disclosed in connection with the engagement.</p>
+
+    <h2>8. Limitation of liability</h2>
+    <p>Nothing in these terms excludes liability that cannot lawfully be excluded.
+      Subject to that, Sora Collective shall not be liable for indirect or
+      consequential loss, including loss of profit, revenue or anticipated
+      savings, arising from use of this website.</p>
+
+    <h2>9. Third-party links</h2>
+    <p>This website may link to third-party sites and tools. We are not
+      responsible for their content or practices.</p>
+
+    <h2>10. Governing law</h2>
+    <p>These terms are governed by the laws of the United Arab Emirates and the
+      courts of Dubai shall have jurisdiction, unless otherwise agreed in writing.</p>
+
+    <h2>11. Contact</h2>
+    <p><a href="mailto:info@soracollective.co">info@soracollective.co</a></p>
+  </div></div>
+</div>
+
+
+<script>
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbgrdjrv';
+
+/* ══ NAV ══ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function () {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+function toggleMob() {
+  const m = document.getElementById('mob');
+  const open = m.classList.toggle('on');
+  document.body.style.overflow = open ? 'hidden' : '';
+  document.getElementById('hamBtn').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+/* ══ ROUTING ══
+   Legal pages are separate panels; everything else is one scrolling page. */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.getElementById('page-' + id).classList.add('on');
+  window.scrollTo(0, 0);
+}
+function goHome() {
+  showPage('main');
+  history.replaceState(null, '', location.pathname);
+  return false;
+}
+function openLegal(which) {
+  showPage(which);
+  return false;
+}
+function goTo(id) {
+  // Section targets live on the main page — switch to it first if we're
+  // on a legal panel, or the scroll silently does nothing.
+  const main = document.getElementById('page-main');
+  if (!main.classList.contains('on')) {
+    showPage('main');
+    setTimeout(function () {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+    return false;
+  }
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return false;
+}
+
+/* ══ REVEAL ON SCROLL ══
+   Content is hidden by CSS until revealed, so if IntersectionObserver is
+   missing or throws we must show everything rather than leave a blank page. */
+function revealAll() {
+  document.querySelectorAll('.rv, .step').forEach(el => el.classList.add('in'));
+  const fill = document.getElementById('stepsFill');
+  if (fill) fill.style.height = '100%';
+}
+
+if (typeof IntersectionObserver === 'undefined') {
+  revealAll();
+} else {
+  try {
+    const io_ = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io_.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io_.observe(el));
+
+    /* Step markers light up, and the connecting line fills, as you scroll. */
+    const stepObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+      const steps = Array.from(document.querySelectorAll('.step'));
+      const done = steps.filter(s => s.classList.contains('in')).length;
+      const fill = document.getElementById('stepsFill');
+      if (fill && steps.length) {
+        fill.style.height = Math.min(100, (done / steps.length) * 100) + '%';
+      }
+    }, { threshold: 0.45 });
+    document.querySelectorAll('.step').forEach(el => stepObs.observe(el));
+  } catch (err) {
+    revealAll();
+  }
+}
+
+
+/* ══════════════════════════════════════
+   MOTION
+══════════════════════════════════════ */
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Scroll progress */
+(function () {
+  const bar = document.getElementById('prog');
+  if (!bar || REDUCED) return;
+  let ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+      ticking = false;
+    });
+  }, { passive: true });
+})();
+
+/* Stagger: index each child so CSS can offset its delay */
+document.querySelectorAll('.stag').forEach(function (group) {
+  Array.from(group.children).forEach(function (child, i) {
+    child.style.setProperty('--i', i);
+  });
+});
+
+/* Play-once triggers for the conversation and the journey */
+(function () {
+  const targets = [
+    { el: document.querySelector('.call'), cls: 'play' },
+    { el: document.querySelector('.journey'), cls: 'play' },
+  ].filter(t => t.el);
+
+  if (REDUCED || typeof IntersectionObserver === 'undefined') {
+    targets.forEach(t => t.el.classList.add(t.cls));
+    return;
+  }
+
+  try {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('play');
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    targets.forEach(t => obs.observe(t.el));
+  } catch (err) {
+    targets.forEach(t => t.el.classList.add(t.cls));
+  }
+})();
+
+/* Stagger groups need the same reveal trigger as .rv */
+(function () {
+  if (REDUCED || typeof IntersectionObserver === 'undefined') {
+    document.querySelectorAll('.stag').forEach(el => el.classList.add('in'));
+    return;
+  }
+  try {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.stag').forEach(el => obs.observe(el));
+  } catch (err) {
+    document.querySelectorAll('.stag').forEach(el => el.classList.add('in'));
+  }
+})();
+
+/* ══ CALCULATOR ══ */
+const CUR = { USD: '$', EUR: '\u20AC', GBP: '\u00A3', AED: 'AED ' };
+let activeCur = 'USD';
+
+function money(n) {
+  return CUR[activeCur] + Math.round(n).toLocaleString();
+}
+
+/* Figures count toward their new value so a slider drag reads as movement
+   rather than a flicker. Dragging cancels the previous run. */
+const figureRuns = {};
+function setFigure(id, target, fmt) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  if (REDUCED) { el.textContent = fmt(target); return; }
+
+  const from = figureRuns[id] && typeof figureRuns[id].value === 'number'
+    ? figureRuns[id].value : 0;
+  if (figureRuns[id] && figureRuns[id].raf) cancelAnimationFrame(figureRuns[id].raf);
+
+  const start = performance.now();
+  const dur = 420;
+  const run = figureRuns[id] = { value: from, raf: 0 };
+
+  function frame(now) {
+    const t = Math.min(1, (now - start) / dur);
+    // ease-out cubic: fast then settling
+    const eased = 1 - Math.pow(1 - t, 3);
+    run.value = from + (target - from) * eased;
+    el.textContent = fmt(run.value);
+    if (t < 1) { run.raf = requestAnimationFrame(frame); }
+    else { run.value = target; el.textContent = fmt(target); run.raf = 0; }
+  }
+  run.raf = requestAnimationFrame(frame);
+}
+
+function calc() {
+  const deal = +document.getElementById('rDeal').value;
+  const meet = +document.getElementById('rMeet').value;
+  const rate = +document.getElementById('rRate').value;
+
+  document.getElementById('vDeal').textContent = money(deal);
+  document.getElementById('vMeet').textContent = meet;
+  document.getElementById('vRate').textContent = rate + '%';
+
+  // Fill the slider track up to the thumb so the control reads at a glance.
+  [['rDeal', 1000, 250000], ['rMeet', 1, 60], ['rRate', 1, 80]].forEach(function (c) {
+    const s = document.getElementById(c[0]);
+    const pct = ((+s.value - c[1]) / (c[2] - c[1])) * 100;
+    s.style.background = 'linear-gradient(90deg, var(--gold) ' + pct + '%, var(--b2) ' + pct + '%)';
+  });
+
+  const customers = meet * (rate / 100);
+  const monthly = customers * deal;
+
+  // Customers per month is usually fractional; rounding to a whole number
+  // would overstate at low volumes.
+  setFigure('oCust', customers, function (v) {
+    // Below 10, rounding up would overstate at low volumes.
+    return v >= 10 ? Math.round(v) : (Math.round(v * 10) / 10);
+  });
+  setFigure('oMonth', monthly, money);
+  setFigure('oYear', monthly * 12, money);
+
+  // Break-even: how many customers cover the example investment.
+  // Pure arithmetic on the entered numbers — not a claim about Sora.
+  const inv = +document.getElementById('rInv').value;
+  document.getElementById('vInv').textContent = money(inv);
+  const s = document.getElementById('rInv');
+  const ipct = ((inv - 1000) / (20000 - 1000)) * 100;
+  s.style.background = 'linear-gradient(90deg, var(--gold) ' + ipct + '%, var(--b2) ' + ipct + '%)';
+
+  const needed = deal > 0 ? inv / deal : 0;
+  setFigure('oBreak', needed, function (v) {
+    return v >= 10 ? Math.round(v) : (Math.round(v * 100) / 100);
+  });
+
+  // Fractional customers read poorly, so express it as months of cover instead.
+  const months = inv > 0 ? deal / inv : 0;
+  const msg = document.getElementById('oBreakMsg');
+  if (months >= 1) {
+    msg.textContent = 'One ' + money(deal) + ' customer would equal ' +
+      (months >= 10 ? Math.round(months) : (Math.round(months * 10) / 10)) +
+      ' months of this example investment.';
+  } else {
+    msg.textContent = 'At this deal value you would need ' +
+      (needed >= 10 ? Math.round(needed) : (Math.round(needed * 10) / 10)) +
+      ' customers per month to cover this example investment.';
+  }
+}
+
+['rDeal', 'rMeet', 'rRate', 'rInv'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', calc);
+});
+
+document.getElementById('cur').addEventListener('click', function (e) {
+  const b = e.target.closest('button');
+  if (!b) return;
+  activeCur = b.dataset.cur;
+  this.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  calc();
+});
+
+calc();
+
+
+/* ══ FAQ ══ */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-i');
+  const panel = item.querySelector('.faq-a');
+  const open = item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+}
+
+/* ══ TIMELINE ══ (same pattern as How It Works) */
+(function () {
+  const rows = Array.from(document.querySelectorAll('.tlx'));
+  const fill = document.getElementById('tlFill');
+  if (!rows.length) return;
+
+  function paint() {
+    const done = rows.filter(r => r.classList.contains('in')).length;
+    if (fill) fill.style.height = Math.min(100, (done / rows.length) * 100) + '%';
+  }
+  if (REDUCED || typeof IntersectionObserver === 'undefined') {
+    rows.forEach(r => r.classList.add('in')); paint(); return;
+  }
+  try {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+      paint();
+    }, { threshold: 0.4 });
+    rows.forEach(r => obs.observe(r));
+  } catch (err) { rows.forEach(r => r.classList.add('in')); paint(); }
+})();
+
+/* ══ COMMAND CENTRE ══
+   Figures count up once when the dashboard is reached. Demo data only. */
+(function () {
+  const cc = document.getElementById('cc');
+  if (!cc) return;
+  const cells = Array.from(cc.querySelectorAll('.cc-v'));
+
+  function fmt(el, v) {
+    return el.dataset.money ? '$' + Math.round(v).toLocaleString()
+                            : Math.round(v).toLocaleString();
+  }
+  function run() {
+    cc.classList.add('play');
+    cells.forEach(function (el, i) {
+      const target = +el.dataset.count;
+      if (REDUCED) { el.textContent = fmt(el, target); return; }
+      const start = performance.now(), delay = i * 80, dur = 1100;
+      function frame(now) {
+        const t = Math.max(0, Math.min(1, (now - start - delay) / dur));
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmt(el, target * eased);
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = fmt(el, target);
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  if (REDUCED || typeof IntersectionObserver === 'undefined') { run(); return; }
+  try {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { run(); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(cc);
+  } catch (err) { run(); }
+})();
+
+
+/* ══════════════════════════════════════
+   AMBIENT DOT FIELD
+   One canvas per marked section. Deliberately cheap:
+   - ~26 dots desktop, ~10 mobile
+   - only the nearest few pairs are linked, not every pair
+   - rAF stops entirely when the section is off-screen
+   - skipped completely for reduced motion
+══════════════════════════════════════ */
+(function () {
+  const hosts = Array.from(document.querySelectorAll('.amb'));
+  if (!hosts.length || REDUCED) return;
+
+  const mobile = window.matchMedia('(max-width: 760px)').matches;
+  const TINT = ['212,170,112', '240,237,232', '212,208,203'];
+
+  hosts.forEach(function (host) {
+    const canvas = document.createElement('canvas');
+    host.appendChild(canvas);
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    let dots = [], w = 0, h = 0, raf = 0, visible = false;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const want = mobile
+      ? Math.round((+host.dataset.dots || 26) * 0.4)
+      : (+host.dataset.dots || 26);
+    // Linking every pair is O(n²); at this count it stays trivial,
+    // but the distance threshold keeps the drawn lines sparse.
+    const LINK = mobile ? 0 : 132;
+
+    function size() {
+      const r = host.getBoundingClientRect();
+      w = r.width; h = r.height;
+      if (w === 0 || h === 0) return;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function seed() {
+      dots = [];
+      for (let i = 0; i < want; i++) {
+        dots.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.5 + 0.6,
+          vx: (Math.random() - 0.5) * 0.16,
+          vy: (Math.random() - 0.5) * 0.16,
+          a: Math.random() * 0.28 + 0.10,
+          t: TINT[Math.floor(Math.random() * TINT.length)],
+        });
+      }
+    }
+
+    function frame() {
+      if (!visible) { raf = 0; return; }
+      ctx.clearRect(0, 0, w, h);
+
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        d.x += d.vx; d.y += d.vy;
+        // wrap rather than bounce — bouncing reads as an edge
+        if (d.x < -10) d.x = w + 10; if (d.x > w + 10) d.x = -10;
+        if (d.y < -10) d.y = h + 10; if (d.y > h + 10) d.y = -10;
+
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + d.t + ',' + d.a + ')';
+        ctx.fill();
+      }
+
+      if (LINK) {
+        for (let i = 0; i < dots.length; i++) {
+          for (let j = i + 1; j < dots.length; j++) {
+            const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > LINK) continue;
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = 'rgba(212,170,112,' + (0.055 * (1 - dist / LINK)) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() { if (!raf) { visible = true; raf = requestAnimationFrame(frame); } }
+    function stop() { visible = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+    size(); seed();
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+      }, { threshold: 0 }).observe(host);
+    } else { start(); }
+
+    let rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { size(); seed(); }, 200);
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : start();
+    });
+  });
+})();
+
+/* ══════════════════════════════════════
+   CURSOR GLOW — desktop, pointer devices only
+══════════════════════════════════════ */
+(function () {
+  if (REDUCED) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.innerWidth < 1024) return;
+
+  const glow = document.createElement('div');
+  glow.id = 'cursorGlow';
+  document.body.appendChild(glow);
+
+  const zones = ['#page-main .hero', '#command', '#channels']
+    .map(s => document.querySelector(s)).filter(Boolean);
+
+  let x = 0, y = 0, ticking = false;
+  window.addEventListener('mousemove', function (e) {
+    x = e.clientX; y = e.clientY;
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      glow.style.transform = 'translate(' + x + 'px,' + y + 'px) translate(-50%,-50%)';
+      const inZone = zones.some(function (z) {
+        const r = z.getBoundingClientRect();
+        return y >= r.top && y <= r.bottom;
+      });
+      glow.classList.toggle('on', inZone);
+      ticking = false;
+    });
+  }, { passive: true });
+})();
+
+/* ══════════════════════════════════════
+   SECTION PLAY TRIGGERS
+══════════════════════════════════════ */
+(function () {
+  const plays = [
+    { sel: '#chan',      cls: 'play' },
+    { sel: '#chanTrack', cls: 'run'  },
+    { sel: '#brief',     cls: 'play' },
+    { sel: '.qframe',    cls: 'lit'  },
+  ];
+
+  plays.forEach(function (p) {
+    const el = document.querySelector(p.sel);
+    if (!el) return;
+    if (REDUCED || typeof IntersectionObserver === 'undefined') {
+      el.classList.add(p.cls); return;
+    }
+    try {
+      const obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add(p.cls); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(el);
+    } catch (err) { el.classList.add(p.cls); }
+  });
+})();
+
+/* Hero pipeline keeps running once it has drawn itself in */
+(function () {
+  const pipe = document.querySelector('.pipe');
+  if (!pipe || REDUCED) return;
+  setTimeout(function () { pipe.classList.add('live'); }, 2000);
+})();
+
+/* ══ STRATEGY CALL FORM ══ */
+async function submitForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('callForm');
+  const err = document.getElementById('formError');
+  const success = document.getElementById('formSuccess');
+  const btn = form.querySelector('.f-btn');
+
+  err.style.display = 'none';
+
+  const required = ['name', 'email', 'company', 'whatYouSell'];
+  for (const field of required) {
+    const el = form.elements[field];
+    if (!el.value.trim()) {
+      err.textContent = 'Please complete every required field before sending.';
+      err.style.display = 'block';
+      el.focus();
+      return;
+    }
+  }
+
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Sending\u2026';
+
+  const data = new FormData(form);
+  data.append('_subject', 'Strategy Call Request \u2014 ' +
+    (data.get('company') || data.get('name') || 'New enquiry'));
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST', body: data, headers: { Accept: 'application/json' }
+    });
+    if (!res.ok) {
+      let detail = '';
+      try {
+        const j = await res.json();
+        detail = (j.errors || []).map(x => x.message).join(', ');
+      } catch (_) {}
+      throw new Error(detail || ('HTTP ' + res.status));
+    }
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (ex) {
+    err.textContent = 'We could not send your request (' + ex.message +
+      '). Please try again, or email info@soracollective.co directly.';
+    err.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+}
+
+/* ══ MISC ══ */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && document.getElementById('mob').classList.contains('on')) toggleMob();
+});
+
+/* Deep links: /#privacy and /#terms open the legal panels directly. */
+(function () {
+  const hash = location.hash.replace('#', '');
+  if (hash === 'privacy' || hash === 'terms') showPage(hash);
+})();
+</script>
+
+</body>
+</html>
